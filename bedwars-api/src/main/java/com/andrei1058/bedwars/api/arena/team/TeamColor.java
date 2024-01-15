@@ -445,7 +445,7 @@ public enum TeamColor {
                 break;
             }
             case 5: {
-                color = Color.fromBGR((int)0, (int)255, (int)0);
+                color = Color.fromBGR((int)0, (int)128, (int)0);
                 break;
             }
             case 6: {
@@ -453,7 +453,7 @@ public enum TeamColor {
                 break;
             }
             case 7: {
-                color = Color.fromBGR((int)74, (int)74, (int)74);
+                color = Color.fromBGR((int)80, (int)80, (int)80);
                 break;
             }
             case 8: {
@@ -477,7 +477,7 @@ public enum TeamColor {
                 break;
             }
             case 13: {
-                color = Color.fromBGR((int)0, (int)128, (int)0);
+                color = Color.fromBGR((int)0, (int)64, (int)0);
                 break;
             }
             case 14: {
@@ -518,7 +518,7 @@ public enum TeamColor {
                 break;
             }
             case 5: {
-                color = Color.fromBGR((int)0, (int)255, (int)0);
+                color = Color.fromBGR((int)0, (int)128, (int)0);
                 break;
             }
             case 6: {
@@ -526,7 +526,7 @@ public enum TeamColor {
                 break;
             }
             case 7: {
-                color = Color.fromBGR((int)74, (int)74, (int)74);
+                color = Color.fromBGR((int)80, (int)80, (int)80);
                 break;
             }
             case 8: {
@@ -550,7 +550,7 @@ public enum TeamColor {
                 break;
             }
             case 13: {
-                color = Color.fromBGR((int)0, (int)128, (int)0);
+                color = Color.fromBGR((int)0, (int)64, (int)0);
                 break;
             }
             case 14: {
