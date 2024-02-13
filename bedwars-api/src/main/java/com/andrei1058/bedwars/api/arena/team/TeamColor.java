@@ -449,7 +449,7 @@ public enum TeamColor {
                 break;
             }
             case 6: {
-                color = Color.fromBGR((int)255, (int)0, (int)255);
+                color = Color.fromBGR((int)128, (int)0, (int)128);
                 break;
             }
             case 7: {
@@ -522,7 +522,7 @@ public enum TeamColor {
                 break;
             }
             case 6: {
-                color = Color.fromBGR((int)255, (int)0, (int)255);
+                color = Color.fromBGR((int)128, (int)0, (int)128);
                 break;
             }
             case 7: {
