@@ -23,16 +23,20 @@ public enum TeamColor {
     GREEN,
     RED,
     BLACK,
-    AQUA;
+    AQUA,
+    PINK_H,
+    LIME_H;
 
 
     public static ChatColor getChatColor(@NotNull String tColor) {
         TeamColor teamColor = valueOf(tColor.toUpperCase());
         ChatColor color;
-        if (teamColor == PINK) {
+        if (teamColor == PINK_H) {
             color = ChatColor.LIGHT_PURPLE;
         } else if (teamColor == ORANGE) {
             color = ChatColor.GOLD;
+        } else if (teamColor == PINK) {
+            color = ChatColor.LIGHT_PURPLE;
         } else if (teamColor == PURPLE) {
             color = ChatColor.DARK_PURPLE;
         } else if (teamColor == MAGENTA) {
@@ -40,7 +44,7 @@ public enum TeamColor {
         } else if (teamColor == LIGHT_BLUE) {
             color = ChatColor.AQUA;
         } else if (teamColor == CYAN) {
-                color = ChatColor.DARK_AQUA;
+            color = ChatColor.DARK_AQUA;
         } else if (teamColor == GRAY) {
             color = ChatColor.DARK_GRAY;
         }  else if (teamColor == LIGHT_GRAY) {
@@ -53,6 +57,8 @@ public enum TeamColor {
             color = ChatColor.GREEN;
         } else if (teamColor == AQUA) {
             color = ChatColor.AQUA;
+        } else if (teamColor == LIME_H) {
+            color = ChatColor.GREEN;
         } else {
             color = ChatColor.valueOf(teamColor.toString());
         }
@@ -63,10 +69,12 @@ public enum TeamColor {
     public ChatColor chat() {
         TeamColor teamColor = valueOf(this.toString());
         ChatColor color;
-        if (teamColor == PINK) {
+        if (teamColor == PINK_H) {
             color = ChatColor.LIGHT_PURPLE;
         } else if (teamColor == ORANGE) {
             color = ChatColor.GOLD;
+        } else if (teamColor == PINK) {
+            color = ChatColor.LIGHT_PURPLE;
         } else if (teamColor == PURPLE) {
             color = ChatColor.DARK_PURPLE;
         } else if (teamColor == MAGENTA) {
@@ -87,6 +95,8 @@ public enum TeamColor {
             color = ChatColor.GREEN;
         } else if (teamColor == AQUA) {
             color = ChatColor.AQUA;
+        } else if (teamColor == LIME_H) {
+            color = ChatColor.GREEN;
         } else {
             color = ChatColor.valueOf(teamColor.toString());
         }
@@ -97,10 +107,12 @@ public enum TeamColor {
     @Deprecated
     public static ChatColor getChatColor(TeamColor teamColor) {
         ChatColor color;
-        if (teamColor == PINK) {
+        if (teamColor == PINK_H) {
             color = ChatColor.LIGHT_PURPLE;
         } else if (teamColor == ORANGE) {
             color = ChatColor.GOLD;
+        } else if (teamColor == PINK) {
+            color = ChatColor.LIGHT_PURPLE;
         } else if (teamColor == PURPLE) {
             color = ChatColor.DARK_PURPLE;
         } else if (teamColor == MAGENTA) {
@@ -121,6 +133,8 @@ public enum TeamColor {
             color = ChatColor.GREEN;
         } else if (teamColor == AQUA) {
             color = ChatColor.AQUA;
+        } else if (teamColor == LIME_H) {
+            color = ChatColor.GREEN;
         } else {
             color = ChatColor.valueOf(teamColor.toString());
         }
@@ -135,6 +149,12 @@ public enum TeamColor {
             case AQUA:
                 color = DyeColor.CYAN;
                 break;
+            case PINK_H:
+                color = DyeColor.PINK;
+                break;
+            case LIME_H:
+                color = DyeColor.LIME;
+                break;
             default:
                 color = DyeColor.valueOf(teamColor.toUpperCase());
         }
@@ -147,6 +167,12 @@ public enum TeamColor {
         switch(this) {
             case AQUA:
                 color = DyeColor.CYAN;
+                break;
+            case PINK_H:
+                color = DyeColor.PINK;
+                break;
+            case LIME_H:
+                color = DyeColor.LIME;
                 break;
             default:
                 color = DyeColor.valueOf(this.toString());
@@ -168,16 +194,16 @@ public enum TeamColor {
             case MAGENTA:
                 i = 2;
                 break;
-            case LIGHT_BLUE, AQUA:
+            case LIGHT_BLUE:
                 i = 3;
                 break;
-            case LIME:
+            case LIME, LIME_H:
                 i = 5;
                 break;
             case YELLOW:
                 i = 4;
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 i = 6;
                 break;
             case GRAY:
@@ -186,7 +212,7 @@ public enum TeamColor {
             case LIGHT_GRAY:
                 i = 8;
                 break;
-            case CYAN:
+            case CYAN, AQUA:
                 i = 9;
                 break;
             case PURPLE:
@@ -223,16 +249,16 @@ public enum TeamColor {
             case MAGENTA:
                 i = 2;
                 break;
-            case LIGHT_BLUE, AQUA:
+            case LIGHT_BLUE:
                 i = 3;
                 break;
-            case LIME:
+            case LIME, LIME_H:
                 i = 5;
                 break;
             case YELLOW:
                 i = 4;
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 i = 6;
                 break;
             case GRAY:
@@ -241,7 +267,7 @@ public enum TeamColor {
             case LIGHT_GRAY:
                 i = 8;
                 break;
-            case CYAN:
+            case CYAN, AQUA:
                 i = 9;
                 break;
             case PURPLE:
@@ -275,6 +301,7 @@ public enum TeamColor {
         switch (material.toUpperCase()) {
             case "PINK_WOOL": {
                 name = "Pink";
+                next = "Pink_H";
                 break;
             }
             case "RED_WOOL": {
@@ -295,11 +322,11 @@ public enum TeamColor {
             }
             case "LIGHT_BLUE_WOOL": {
                 name = "Light_BLue";
-                next = "Aqua";
                 break;
             }
             case "LIME_WOOL": {
                 name = "Lime";
+                next = "Lime:H";
                 break;
             }
             case "YELLOW_WOOL": {
@@ -336,6 +363,7 @@ public enum TeamColor {
             }
             case "CYAN_WOOL": {
                 name = "Cyan";
+                next = "Aqua";
             }
         }
         return name + next;
@@ -363,7 +391,6 @@ public enum TeamColor {
             }
             case 3: {
                 name = "Light_Blue";
-                next = "Aqua";
                 break;
             }
             case 4: {
@@ -372,10 +399,12 @@ public enum TeamColor {
             }
             case 5: {
                 name = "Lime";
+                next = "Lime_H";
                 break;
             }
             case 6: {
                 name = "Pink";
+                next = "Pink_H";
                 break;
             }
             case 7: {
@@ -388,6 +417,7 @@ public enum TeamColor {
             }
             case 9: {
                 name = "Cyan";
+                next = "Aqua";
                 break;
             }
             case 10: {
@@ -419,150 +449,125 @@ public enum TeamColor {
 
     @Deprecated
     public static Color getColor(@NotNull TeamColor teamColor) {
-        if (teamColor == null) {
-            TeamColor.$$$reportNull$$$0(4);
-        }
-        Color color = Color.fromBGR((int)255, (int)255, (int)0);
-        switch (teamColor.ordinal()) {
-            case 0: {
-                color = Color.fromBGR((int)255, (int)255, (int)255);
+        Color color = Color.WHITE;
+        switch (teamColor) {
+            case WHITE:
                 break;
-            }
-            case 1: {
-                color = Color.fromBGR((int)0, (int)128, (int)255);
+            case ORANGE:
+                color = Color.fromBGR(0, 128, 255);
                 break;
-            }
-            case 2: {
-                color = Color.fromBGR((int)128, (int)0, (int)255);
+            case MAGENTA:
+                color = Color.fromBGR(255, 0, 255);
                 break;
-            }
-            case 3: {
-                color = Color.fromBGR((int)255, (int)255, (int)0);
+            case LIGHT_BLUE, AQUA:
+                color = Color.fromBGR(255, 255, 0);
                 break;
-            }
-            case 4: {
-                color = Color.fromBGR((int)0, (int)255, (int)255);
+            case YELLOW:
+                color = Color.fromBGR(0, 255, 255);
                 break;
-            }
-            case 5: {
-                color = Color.fromBGR((int)0, (int)128, (int)0);
+            case LIME:
+                color = Color.fromBGR(0, 255, 0);
                 break;
-            }
-            case 6: {
-                color = Color.fromBGR((int)128, (int)0, (int)128);
+            case PINK:
+                color = Color.fromBGR(192, 128, 255);
                 break;
-            }
-            case 7: {
-                color = Color.fromBGR((int)80, (int)80, (int)80);
+            case GRAY:
+                color = Color.fromBGR(128, 128, 128);
                 break;
-            }
-            case 8: {
-                color = Color.fromBGR((int)157, (int)157, (int)157);
+            case LIGHT_GRAY:
+                color = Color.fromBGR(192, 192, 192);
                 break;
-            }
-            case 9: {
-                color = Color.fromBGR((int)128, (int)128, (int)0);
+            case CYAN:
+                color = Color.fromBGR(128, 128, 0);
                 break;
-            }
-            case 10: {
-                color = Color.fromBGR((int)255, (int)0, (int)128);
+            case PURPLE:
+                color = Color.fromBGR(255, 0, 128);
                 break;
-            }
-            case 11: {
-                color = Color.fromBGR((int)255, (int)0, (int)0);
+            case BLUE:
+                color = Color.fromBGR(255, 0, 0);
                 break;
-            }
-            case 12: {
-                color = Color.fromBGR((int)31, (int)92, (int)169);
+            case BROWN:
+                color = Color.fromBGR(64, 101, 160);
                 break;
-            }
-            case 13: {
-                color = Color.fromBGR((int)0, (int)64, (int)0);
+            case GREEN:
+                color = Color.fromBGR(0, 128, 0);
                 break;
-            }
-            case 14: {
-                color = Color.fromBGR((int)0, (int)0, (int)255);
+            case RED:
+                color = Color.fromBGR(0, 0, 255);
                 break;
-            }
-            case 15: {
-                color = Color.fromBGR((int)0, (int)0, (int)0);
+            case BLACK:
+                color = Color.fromBGR(0, 0, 0);
                 break;
-            }
-            default: {
-            }
+            case PINK_H:
+                color = Color.fromBGR(128, 0, 128);
+                break;
+            case LIME_H:
+                color = Color.fromBGR(0, 128, 0);
+                break;
         }
         return color;
     }
 
+    /**
+
+     This is usually used for leather armor.*
+     @return Equivalent color. Returns WHITE if given color has no equivalent.*/
     public Color bukkitColor() {
-        Color color = Color.fromBGR((int)255, (int)255, (int)0);
-        switch (this.ordinal()) {
-            case 0: {
-                color = Color.fromBGR((int)255, (int)255, (int)255);
+        Color color = Color.WHITE;
+        switch (this) {
+            case WHITE:
                 break;
-            }
-            case 1: {
-                color = Color.fromBGR((int)0, (int)128, (int)255);
+            case ORANGE:
+                color = Color.fromBGR(0, 128, 255);
                 break;
-            }
-            case 2: {
-                color = Color.fromBGR((int)128, (int)0, (int)255);
+            case MAGENTA:
+                color = Color.fromBGR(255, 0, 255);
                 break;
-            }
-            case 3: {
-                color = Color.fromBGR((int)255, (int)255, (int)0);
+            case LIGHT_BLUE, AQUA:
+                color = Color.fromBGR(255, 255, 0);
                 break;
-            }
-            case 4: {
-                color = Color.fromBGR((int)0, (int)255, (int)255);
+            case YELLOW:
+                color = Color.fromBGR(0, 255, 255);
                 break;
-            }
-            case 5: {
-                color = Color.fromBGR((int)0, (int)128, (int)0);
+            case LIME:
+                color = Color.fromBGR(0, 255, 0);
                 break;
-            }
-            case 6: {
-                color = Color.fromBGR((int)128, (int)0, (int)128);
+            case PINK:
+                color = Color.fromBGR(192, 128, 255);
                 break;
-            }
-            case 7: {
-                color = Color.fromBGR((int)80, (int)80, (int)80);
+            case GRAY:
+                color = Color.fromBGR(128, 128, 128);
                 break;
-            }
-            case 8: {
-                color = Color.fromBGR((int)157, (int)157, (int)157);
+            case LIGHT_GRAY:
+                color = Color.fromBGR(192, 192, 192);
                 break;
-            }
-            case 9: {
-                color = Color.fromBGR((int)128, (int)128, (int)0);
+            case CYAN:
+                color = Color.fromBGR(128, 128, 0);
                 break;
-            }
-            case 10: {
-                color = Color.fromBGR((int)255, (int)0, (int)128);
+            case PURPLE:
+                color = Color.fromBGR(255, 0, 128);
                 break;
-            }
-            case 11: {
-                color = Color.fromBGR((int)255, (int)0, (int)0);
+            case BLUE:
+                color = Color.fromBGR(255, 0, 0);
                 break;
-            }
-            case 12: {
-                color = Color.fromBGR((int)31, (int)92, (int)169);
+            case BROWN:
+                color = Color.fromBGR(64, 101, 160);
                 break;
-            }
-            case 13: {
-                color = Color.fromBGR((int)0, (int)64, (int)0);
+            case GREEN:
+                color = Color.fromBGR(0, 128, 0);
                 break;
-            }
-            case 14: {
-                color = Color.fromBGR((int)0, (int)0, (int)255);
+            case RED:
+                color = Color.fromBGR(0, 0, 255);
                 break;
-            }
-            case 15: {
-                color = Color.fromBGR((int)0, (int)0, (int)0);
+            case BLACK:
+                color = Color.fromBGR(0, 0, 0);
                 break;
-            }
-            default: {
-            }
+            case PINK_H:
+                color = Color.fromBGR(128, 0, 128);
+                break;
+            case LIME_H:
+                color = Color.fromBGR(0, 128, 0);
+                break;
         }
         return color;
     }
@@ -571,7 +576,7 @@ public enum TeamColor {
     public static Material getBedBlock(@NotNull TeamColor teamColor) {
         String color = "RED_BED";
         switch(teamColor) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_BED";
                 break;
             case LIGHT_BLUE:
@@ -583,7 +588,7 @@ public enum TeamColor {
             case WHITE:
                 color = "WHITE_BED";
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_BED";
                 break;
             case RED:
@@ -626,7 +631,7 @@ public enum TeamColor {
     public Material bedMaterial() {
         String color = "RED_BED";
         switch(this) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_BED";
                 break;
             case LIGHT_BLUE:
@@ -638,7 +643,7 @@ public enum TeamColor {
             case WHITE:
                 color = "WHITE_BED";
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_BED";
                 break;
             case RED:
@@ -682,7 +687,7 @@ public enum TeamColor {
     public static Material getGlass(@NotNull TeamColor teamColor) {
         String color = "GLASS";
         switch(teamColor) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_STAINED_GLASS";
                 break;
             case LIGHT_BLUE:
@@ -694,7 +699,7 @@ public enum TeamColor {
             case WHITE:
                 color = "WHITE_STAINED_GLASS";
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_STAINED_GLASS";
                 break;
             case RED:
@@ -737,7 +742,7 @@ public enum TeamColor {
     public Material glassMaterial() {
         String color = "GLASS";
         switch(this) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_STAINED_GLASS";
                 break;
             case LIGHT_BLUE:
@@ -749,7 +754,7 @@ public enum TeamColor {
             case WHITE:
                 color = "WHITE_STAINED_GLASS";
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_STAINED_GLASS";
                 break;
             case RED:
@@ -793,7 +798,7 @@ public enum TeamColor {
     public static Material getGlassPane(@NotNull TeamColor teamColor) {
         String color = "GLASS";
         switch(teamColor) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_STAINED_GLASS_PANE";
                 break;
             case LIGHT_BLUE:
@@ -805,7 +810,7 @@ public enum TeamColor {
             case WHITE:
                 color = "WHITE_STAINED_GLASS_PANE";
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_STAINED_GLASS_PANE";
                 break;
             case RED:
@@ -848,7 +853,7 @@ public enum TeamColor {
     public Material glassPaneMaterial() {
         String color = "GLASS";
         switch(this) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_STAINED_GLASS_PANE";
                 break;
             case LIGHT_BLUE:
@@ -860,7 +865,7 @@ public enum TeamColor {
             case WHITE:
                 color = "WHITE_STAINED_GLASS_PANE";
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_STAINED_GLASS_PANE";
                 break;
             case RED:
@@ -904,7 +909,7 @@ public enum TeamColor {
     public static Material getGlazedTerracotta(@NotNull TeamColor teamColor) {
         String color = "ORANGE_TERRACOTTA";
         switch(teamColor) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_TERRACOTTA";
                 break;
             case LIGHT_BLUE:
@@ -916,7 +921,7 @@ public enum TeamColor {
             case WHITE:
                 color = "WHITE_TERRACOTTA";
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_TERRACOTTA";
                 break;
             case RED:
@@ -959,7 +964,7 @@ public enum TeamColor {
     public Material glazedTerracottaMaterial() {
         String color = "ORANGE_TERRACOTTA";
         switch(this) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_TERRACOTTA";
                 break;
             case LIGHT_BLUE:
@@ -971,7 +976,7 @@ public enum TeamColor {
             case WHITE:
                 color = "WHITE_TERRACOTTA";
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_TERRACOTTA";
                 break;
             case RED:
@@ -1015,7 +1020,7 @@ public enum TeamColor {
     public static Material getWool(@NotNull TeamColor teamColor) {
         String color = "WHITE_WOOL";
         switch(teamColor) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_WOOL";
                 break;
             case LIGHT_BLUE:
@@ -1027,7 +1032,7 @@ public enum TeamColor {
             case WHITE:
             default:
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_WOOL";
                 break;
             case RED:
@@ -1070,7 +1075,7 @@ public enum TeamColor {
     public Material woolMaterial() {
         String color = "WHITE_WOOL";
         switch(this) {
-            case LIME:
+            case LIME, LIME_H:
                 color = "LIME_WOOL";
                 break;
             case LIGHT_BLUE:
@@ -1082,7 +1087,7 @@ public enum TeamColor {
             case WHITE:
             default:
                 break;
-            case PINK:
+            case PINK_H, PINK:
                 color = "PINK_WOOL";
                 break;
             case RED:
@@ -1123,11 +1128,11 @@ public enum TeamColor {
     }
 
     private static TeamColor[] $values() {
-        return new TeamColor[]{WHITE, ORANGE, MAGENTA, LIGHT_BLUE, YELLOW, LIME, PINK, GRAY, LIGHT_GRAY, CYAN, PURPLE, BLUE, BROWN, GREEN, RED, BLACK, AQUA};
+        return new TeamColor[]{WHITE, ORANGE, MAGENTA, LIGHT_BLUE, YELLOW, LIME, PINK, GRAY, LIGHT_GRAY, CYAN, PURPLE, BLUE, BROWN, GREEN, RED, BLACK, AQUA, PINK_H, LIME_H};
     }
 
     private static /* synthetic */ TeamColor[] $values$() {
-        return new TeamColor[]{WHITE, ORANGE, MAGENTA, LIGHT_BLUE, YELLOW, LIME, PINK, GRAY, LIGHT_GRAY, CYAN, PURPLE, BLUE, BROWN, GREEN, RED, BLACK, AQUA};
+        return new TeamColor[]{WHITE, ORANGE, MAGENTA, LIGHT_BLUE, YELLOW, LIME, PINK, GRAY, LIGHT_GRAY, CYAN, PURPLE, BLUE, BROWN, GREEN, RED, BLACK, AQUA, PINK_H, LIME_H};
     }
 
 
